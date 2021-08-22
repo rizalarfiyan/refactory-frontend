@@ -10,6 +10,10 @@ export default {
       type: Boolean,
       default: false,
     },
+    fluid: {
+      type: Boolean,
+      default: false,
+    },
     theme: {
       type: String,
       default: 'blue',
@@ -79,8 +83,9 @@ export default {
     },
     btnClass() {
       const cls = [
-        ...['inline-flex font-semibold flex items-center transition duration-300 m-1'],
+        ...['inline-flex font-semibold flex items-center transition duration-300'],
         ...[this.customClass || ''],
+        ...[this.btnFluid()],
         ...[this.btnSize()],
         ...[!this.customTheme ? `${this.btnTheme()} text-white` : ''],
         ...[this.round ? 'rounded' : this.roundFull ? 'rounded-full' : ''],
@@ -98,6 +103,9 @@ export default {
         default:
           return 'bg-blue-500 hover:bg-blue-600'
       }
+    },
+    btnFluid() {
+      return !this.fluid ? 'm-1' : 'justify-center w-full my-1'
     },
     btnSize() {
       if (!this.iconOnly) {

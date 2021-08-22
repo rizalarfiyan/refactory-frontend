@@ -1,13 +1,19 @@
 module.exports = {
-  purge: {
-    content: ['./public/**/*.html', './src/**/*.vue'],
-  },
+  purge: { content: ['./public/**/*.html', './src/**/*.vue'] },
   darkMode: false,
   theme: {
-    extend: {},
+    container: {
+      center: true,
+      screens: {
+        sm: 'calc(100% - 40px)',
+        md: 'calc(100% - 40px)',
+        lg: '1024px',
+        xl: '1280px',
+      },
+    },
   },
   variants: {
     extend: {},
   },
-  plugins: [],
+  plugins: [require('@tailwindcss/forms')],
 }

@@ -33,7 +33,7 @@ export default {
   },
   methods: {
     icons() {
-      return icons[text.firstUpper(this.name.trim().toLowerCase())] || icons.home
+      return icons[text.kebabToCamel(this.name.trim().toLowerCase())] || icons.home
     },
     getWidth() {
       return number.toNumber(this.width)
