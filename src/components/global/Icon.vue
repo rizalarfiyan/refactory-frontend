@@ -13,7 +13,7 @@
 </template>
 
 <script>
-import { icons } from '@/helpers'
+import { icons, number, text } from '@/helpers'
 
 export default {
   name: 'Icon',
@@ -33,13 +33,13 @@ export default {
   },
   methods: {
     icons() {
-      return icons[this.name.trim().toLowerCase()] || icons.home
+      return icons[text.firstUpper(this.name.trim().toLowerCase())] || icons.home
     },
     getWidth() {
-      return this.width
+      return number.toNumber(this.width)
     },
     getHeight() {
-      return this.height
+      return number.toNumber(this.height)
     },
   },
 }

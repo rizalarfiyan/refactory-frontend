@@ -5,12 +5,14 @@
 </template>
 
 <script>
-const defaultLayout = 'Default'
+import { text } from '@/helpers'
+
+const defaultLayout = 'default'
 export default {
   name: 'LayoutsEngine',
   computed: {
     layout() {
-      const layout = this.$route.meta.layout || defaultLayout
+      const layout = text.firstUpper(this.$route.meta.layout || defaultLayout)
       return () => import(`@/layouts/${layout}Layout.vue`)
     },
   },
